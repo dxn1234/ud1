@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Apptracnghiem</string>
+    <string name="cauhoi">Quần chúng vi phạm chính sách dân số và kế hoạch hóa gia đình chỉ được xem xét, kết nạp vào Đảng khi có đủ điều kiện và tiêu chuẩn gì</string>
+    <string name="dapana">A.Cả 3 phương án trên</string>
+    <string name="dapanb">B.Việc kết nạp quần chúng vi phạm chính sách Dan Số và kế hoạch hóa gia đình vào đảng phải được ban thường vụ tỉnh ủy thành ủy trực thuọc trung ương đồng ý</string>
+    <string name="dapanc">C. Việc kết nạp quần chúng vi phạm chính sách dân số và kế hoạch gia đình vào đảng ủy trực tiếp</string>
+    <string name="dapand">D.Việc kết nạp quần chúng vi phạm chính sách Dân số và kế hoạch hóa gia đình vào đảng phải được ban thường vụ</string>
+    <string name="chuthich">Chú thích:</string>
+    <string name="chuthichrorang">Màu đen câu hỏi chưa trả lời \nMàu xanh câu hỏi đã trả lời</string>
+</resources>

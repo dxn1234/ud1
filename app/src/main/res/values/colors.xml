@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="maunau">#80000000</color>
+    <color name="mauxanh">#42e13f</color>
+    <color name="mauden">#5c5c5c</color>
+    <color name="mauvang">#fce136</color>
+    <color name="maudo">#ed1414</color>
+</resources>
