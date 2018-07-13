@@ -29,7 +29,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.hoangbao.apptracnghiem.R;
+import com.example.hoangbao.apptracnghiem.adapter.DatumAdapter;
 import com.example.hoangbao.apptracnghiem.adapter.LoaiMenuAdapter;
+import com.example.hoangbao.apptracnghiem.model.Datum;
 import com.example.hoangbao.apptracnghiem.model.ExamListRespone;
 import com.example.hoangbao.apptracnghiem.model.LoaiMenu;
 import com.example.hoangbao.apptracnghiem.rest.RestClient;
@@ -47,10 +49,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DanhSachMonThiFragment extends Fragment {
+    public static String mamon;
     String url="http://14.160.93.98:8672/danhsachmonthi.php";
     FragmentManager fragmentManager;
     View view;
-    ArrayList<ExamListRespone> examListResponeArrayList;
+    ArrayList<ExamListRespone>examListResponeArrayList;
+    ArrayList<Datum> datumArrayList;
+    ExamListRespone examListRespone;
     ArrayList<LoaiMenu> loaiMenuArrayList;
     DrawerLayout drawerLayoutdanhsachmonthi;
     ImageButton imgbtnDanhSachMonThi;
@@ -62,52 +67,33 @@ public class DanhSachMonThiFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_danh_sach_mon_thi, container, false);
         anhXa();
+
         return view;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         loaiMenuArrayList.add(new LoaiMenu(R.drawable.next, "Đăng Xuất"));
-        LoaiMenuAdapter loaiMenuAdapter = new LoaiMenuAdapter(getActivity(), R.layout.dong_menu, loaiMenuArrayList);
+        final LoaiMenuAdapter loaiMenuAdapter = new LoaiMenuAdapter(getActivity(), R.layout.dong_menu, loaiMenuArrayList);
         lvMenuDanhSachMonThi.setAdapter(loaiMenuAdapter);
-        RequestQueue requestQueue=Volley.newRequestQueue(getActivity());
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET, url, null, new com.android.volley.Response.Listener<JSONObject>() {
+        retrofit2.Call<ExamListRespone> callExamList=RestClient.getAPIs().getExamList();
+        callExamList.enqueue(new Callback<ExamListRespone>() {
             @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    int code=response.getInt("code");
-                    String message=response.getString("message");
-                    JSONArray jsonArray=response.getJSONArray("data");
-                    for(int i=0;i<jsonArray.length();i++){
-                        JSONObject jsonObject=jsonArray.getJSONObject(i);
-                        String mamon=jsonObject.getString("mamon");
-                        String tenmon=jsonObject.getString("tenmon");
-                        Toast.makeText(getActivity(), tenmon, Toast.LENGTH_SHORT).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+            public void onResponse(Call<ExamListRespone> call, Response<ExamListRespone> response) {
+                Log.d("kiemtra",response.toString());
+                ExamListRespone examListRespone=response.body();
+                examListResponeArrayList.add(examListRespone);
+                mamon=examListRespone.getData().get(0).getMamon();
+                datumArrayList= (ArrayList<Datum>) examListResponeArrayList.get(0).getData();
+                DatumAdapter datumAdapter=new DatumAdapter(getActivity(),R.layout.dong_datum,datumArrayList);
+                lvdanhsachmonthi.setAdapter(datumAdapter);
             }
-        }, new com.android.volley.Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
 
+            @Override
+            public void onFailure(Call<ExamListRespone> call, Throwable t) {
+                Toast.makeText(getActivity(), "Lỗi danhsachmonthifragment", Toast.LENGTH_SHORT).show();
             }
         });
-        requestQueue.add(jsonObjectRequest);
-//        retrofit2.Call<ExamListRespone> callExamList=RestClient.getAPIs().getExamList();
-//        callExamList.enqueue(new Callback<ExamListRespone>() {
-//            @Override
-//            public void onResponse(Call<ExamListRespone> call, Response<ExamListRespone> response) {
-//                Log.d("AAA",response.body().toString());
-//            }
-//
-//            @Override
-//            public void onFailure(Call<ExamListRespone> call, Throwable t) {
-//                Log.d("BBB",t.getMessage());
-//                Toast.makeText(getActivity(), "Lỗi danhsachmonthifragment", Toast.LENGTH_SHORT).show();
-//            }
-//        });
         batSuKien();
         super.onActivityCreated(savedInstanceState);
     }
@@ -153,8 +139,8 @@ public class DanhSachMonThiFragment extends Fragment {
             }
         });
     }
-
     private void anhXa() {
+        datumArrayList=new ArrayList<>();
         fragmentManager = getActivity().getSupportFragmentManager();
         examListResponeArrayList = new ArrayList<>();
         loaiMenuArrayList = new ArrayList<>();

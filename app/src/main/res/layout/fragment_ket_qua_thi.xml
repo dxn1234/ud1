@@ -43,6 +43,7 @@
                     android:layout_width="170dp"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:id="@+id/txt_ketquathisobaodanh"
                     android:layout_marginLeft="15dp"
                     android:text="DKJGGHG-11"
                     android:layout_width="wrap_content"
@@ -59,6 +60,7 @@
                     android:layout_width="170dp"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:id="@+id/txt_ketquathihoten"
                     android:layout_marginLeft="15dp"
                     android:text="Nguyễn Xuân Đức"
                     android:layout_width="wrap_content"
@@ -75,6 +77,7 @@
                     android:layout_width="170dp"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:id="@+id/txt_ketquathibatdau"
                     android:layout_marginLeft="15dp"
                     android:text="20:10 20/05/2018"
                     android:layout_width="wrap_content"
@@ -90,11 +93,13 @@
                     android:text="Kết thúc"
                     android:layout_width="170dp"
                     android:layout_height="wrap_content" />
+
                 <TextView
-                    android:layout_marginLeft="15dp"
-                    android:text="21:10 20/05/2018"
+                    android:id="@+id/txt_ketquathiketthuc"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:text="21:10 20/05/2018" />
             </LinearLayout>
             <LinearLayout
                 android:layout_marginLeft="10dp"
@@ -107,6 +112,7 @@
                     android:layout_width="170dp"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:id="@+id/txt_ketquathithoigian"
                     android:layout_marginLeft="15dp"
                     android:text="1 tiếng"
                     android:layout_width="wrap_content"

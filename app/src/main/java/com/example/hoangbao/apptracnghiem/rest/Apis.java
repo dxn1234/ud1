@@ -1,6 +1,7 @@
 package com.example.hoangbao.apptracnghiem.rest;
 
 import com.example.hoangbao.apptracnghiem.model.ExamListRespone;
+import com.example.hoangbao.apptracnghiem.model.LoaiMonThi;
 import com.example.hoangbao.apptracnghiem.model.LoginRespone;
 
 import retrofit2.Call;
@@ -20,4 +21,9 @@ public interface Apis {
 
     @GET("danhsachmonthi.php")
     Call<ExamListRespone> getExamList();
+
+    @FormUrlEncoded
+    @POST("danhsachcauhoi.php")
+    Call<LoaiMonThi>daymamonlenserver(@Field("mamon") String mamon);
+
 }

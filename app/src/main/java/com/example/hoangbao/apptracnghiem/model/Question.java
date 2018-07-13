@@ -3,36 +3,38 @@ package com.example.hoangbao.apptracnghiem.model;
 import android.widget.RadioButton;
 
 public class Question {
-    int stt;
-    String cauhoi;
+    String macauhoi;
+    String tencauhoi;
     RadioButton radioButtona,radioButtonb,radioButtonc,radioButtond;
+    String dapan;
 
     public Question() {
     }
 
-    public Question(int stt, String cauhoi, RadioButton radioButtona, RadioButton radioButtonb, RadioButton radioButtonc, RadioButton radioButtond) {
-        this.stt = stt;
-        this.cauhoi = cauhoi;
+    public Question(String macauhoi, String tencauhoi, RadioButton radioButtona, RadioButton radioButtonb, RadioButton radioButtonc, RadioButton radioButtond, String dapan) {
+        this.macauhoi = macauhoi;
+        this.tencauhoi = tencauhoi;
         this.radioButtona = radioButtona;
         this.radioButtonb = radioButtonb;
         this.radioButtonc = radioButtonc;
         this.radioButtond = radioButtond;
+        this.dapan = dapan;
     }
 
-    public int getStt() {
-        return stt;
+    public String getMacauhoi() {
+        return macauhoi;
     }
 
-    public void setStt(int stt) {
-        this.stt = stt;
+    public void setMacauhoi(String macauhoi) {
+        this.macauhoi = macauhoi;
     }
 
-    public String getCauhoi() {
-        return cauhoi;
+    public String getTencauhoi() {
+        return tencauhoi;
     }
 
-    public void setCauhoi(String cauhoi) {
-        this.cauhoi = cauhoi;
+    public void setTencauhoi(String tencauhoi) {
+        this.tencauhoi = tencauhoi;
     }
 
     public RadioButton getRadioButtona() {
@@ -65,5 +67,13 @@ public class Question {
 
     public void setRadioButtond(RadioButton radioButtond) {
         this.radioButtond = radioButtond;
+    }
+
+    public String getDapan() {
+        return dapan;
+    }
+
+    public void setDapan(String dapan) {
+        this.dapan = dapan;
     }
 }
