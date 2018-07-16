@@ -87,6 +87,9 @@ public class KetQuaChiTietFragment extends Fragment{
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.mauxanh));
                 }
                 else{
+                    if(i==0){
+                        rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                    }
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.maudo));
                 }
             }
@@ -95,6 +98,9 @@ public class KetQuaChiTietFragment extends Fragment{
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.mauxanh));
                 }
                 else{
+                    if(i==0){
+                        rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                    }
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.maudo));
                 }
             }
@@ -103,6 +109,9 @@ public class KetQuaChiTietFragment extends Fragment{
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.mauxanh));
                 }
                 else{
+                    if(i==0){
+                        rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                    }
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.maudo));
                 }
             }
@@ -111,6 +120,9 @@ public class KetQuaChiTietFragment extends Fragment{
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.mauxanh));
                 }
                 else{
+                    if(i==0){
+                        rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                    }
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.maudo));
                 }
             }
@@ -170,28 +182,76 @@ public class KetQuaChiTietFragment extends Fragment{
         rbketquachitietc.setText("C. "+LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().getText());
         rbketquachitietd.setText("D. "+LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().getText());
         if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("A")){
+            if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+            }
             rbketquachitieta.setTextColor(getResources().getColor(R.color.mauxanh));
-            rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
         }
-        if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("B")){
+        else if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("B")){
+            if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+            }
             rbketquachitietb.setTextColor(getResources().getColor(R.color.mauxanh));
-            rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
         }
-        if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("C")){
+        else if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("C")){
+            if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+            }
             rbketquachitietc.setTextColor(getResources().getColor(R.color.mauxanh));
-            rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
         }
-        if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("D")){
+        else if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("D")){
+            if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+            }
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauxanh));
-            rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
         }
     }
 
@@ -203,28 +263,77 @@ public class KetQuaChiTietFragment extends Fragment{
         rbketquachitietc.setText("C. "+LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().getText());
         rbketquachitietd.setText("D. "+LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().getText());
         if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("A")){
+            if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+            }
             rbketquachitieta.setTextColor(getResources().getColor(R.color.mauxanh));
-            rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
         }
         if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("B")){
+            if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+            }
             rbketquachitietb.setTextColor(getResources().getColor(R.color.mauxanh));
-            rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
         }
         if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("C")){
+            if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+            }
             rbketquachitietc.setTextColor(getResources().getColor(R.color.mauxanh));
-            rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
         }
         if(LamBaiThiFragment.stringArrayListdapan.get(stt).equals("D")){
+            if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
+            }
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauxanh));
-            rbketquachitietb.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitietc.setTextColor(getResources().getColor(R.color.mauden));
-            rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
         }
     }
 

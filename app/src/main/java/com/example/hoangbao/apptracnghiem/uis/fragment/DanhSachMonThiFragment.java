@@ -81,7 +81,7 @@ public class DanhSachMonThiFragment extends Fragment {
         loaiMenuArrayList.add(new LoaiMenu(R.drawable.next, "Đăng Xuất"));
         final LoaiMenuAdapter loaiMenuAdapter = new LoaiMenuAdapter(getActivity(), R.layout.dong_menu, loaiMenuArrayList);
         lvMenuDanhSachMonThi.setAdapter(loaiMenuAdapter);
-        retrofit2.Call<ExamListRespone> callExamList=RestClient.getAPIs().getExamList();
+        retrofit2.Call<ExamListRespone> callExamList=RestClient.getAPIs().getExamList(LoginActivity.sobaodanh);
         callExamList.enqueue(new Callback<ExamListRespone>() {
             @Override
             public void onResponse(Call<ExamListRespone> call, Response<ExamListRespone> response) {

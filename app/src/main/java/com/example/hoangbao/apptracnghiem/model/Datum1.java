@@ -1,11 +1,9 @@
-
 package com.example.hoangbao.apptracnghiem.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Datum1 {
-
     @SerializedName("macauhoi")
     @Expose
     private String macauhoi;
@@ -83,5 +81,4 @@ public class Datum1 {
     public void setDapan(String dapan) {
         this.dapan = dapan;
     }
-
 }

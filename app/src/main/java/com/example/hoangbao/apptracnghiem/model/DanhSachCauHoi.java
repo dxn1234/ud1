@@ -3,6 +3,7 @@ package com.example.hoangbao.apptracnghiem.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DanhSachCauHoi {
@@ -18,9 +19,9 @@ public class DanhSachCauHoi {
     @SerializedName("thoigianthi")
     @Expose
     private Integer thoigianthi;
-    @SerializedName("datum1")
+    @SerializedName("data")
     @Expose
-    private List<Datum1> datum1 = null;
+    private List<Datum1> data = null;
 
     public Integer getCode() {
         return code;
@@ -54,11 +55,11 @@ public class DanhSachCauHoi {
         this.thoigianthi = thoigianthi;
     }
 
-    public List<Datum1> getDatum1() {
-        return datum1;
+    public List<Datum1> getData() {
+        return data;
     }
 
-    public void setDatum1(List<Datum1> datum1) {
-        this.datum1 = datum1;
+    public void setData(List<Datum1> data) {
+        this.data = data;
     }
 }
