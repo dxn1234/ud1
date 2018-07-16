@@ -14,15 +14,33 @@ import com.example.hoangbao.apptracnghiem.uis.fragment.DanhSachMonThiFragment;
 import com.example.hoangbao.apptracnghiem.R;
 
 public class Main2Activity extends AppCompatActivity {
-
+    FragmentTransaction fragmentTransaction;
+    public static DanhSachMonThiFragment danhSachMonThiFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
         FragmentManager fragmentManager=getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        DanhSachMonThiFragment danhSachMonThiFragment=new DanhSachMonThiFragment();
-        fragmentTransaction.replace(R.id.framelayout,danhSachMonThiFragment);
+        fragmentTransaction = fragmentManager.beginTransaction();
+        danhSachMonThiFragment=new DanhSachMonThiFragment();
+        if(danhSachMonThiFragment.isAdded()){
+           fragmentTransaction.show(danhSachMonThiFragment);
+        }
+        else{
+            fragmentTransaction.add(R.id.framelayout,danhSachMonThiFragment);
+            fragmentTransaction.addToBackStack("danhsachmonthi");
+        }
         fragmentTransaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Log.d("kiemtra",getSupportFragmentManager().getBackStackEntryCount()+"");
+        if(getSupportFragmentManager().getBackStackEntryCount()>1){
+            getSupportFragmentManager().popBackStack();
+        }
+        else{
+            startActivity(new Intent(Main2Activity.this,LoginActivity.class));
+        }
     }
 }

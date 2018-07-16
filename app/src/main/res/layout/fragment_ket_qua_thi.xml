@@ -170,6 +170,7 @@
                         android:src="@drawable/logo" />
 
                     <TextView
+                        android:id="@+id/txt_ketquathimenuhoten"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -179,6 +180,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/txt_ketquathimenusobaodanh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -187,6 +189,7 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/txt_ketquathingaysinh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

@@ -31,6 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends BaseActivity{
+    public static String ngaysinh;
     public static String name;
     public static String sobaodanh;
     TextInputLayout tiuername, tipassword;
@@ -62,6 +63,13 @@ public class LoginActivity extends BaseActivity{
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent homeIntent = new Intent(Intent.ACTION_MAIN);
+        homeIntent.addCategory( Intent.CATEGORY_HOME );
+        homeIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(homeIntent);
+    }
 
     @Override
     public void initValueable() {
@@ -76,12 +84,13 @@ public class LoginActivity extends BaseActivity{
                 int code = response.body().getCode();
                 if (code == 200) {
                     sobaodanh=edtsobaodanh.getText().toString();
+                    ngaysinh=response.body().getData().getNgaysinh();
                     Data data = response.body().getData();
                     name = data.getHodem() + " " + data.getTen();
                     Toast.makeText(LoginActivity.this, name, Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, Main2Activity.class));
                 } else {
-                    Toast.makeText(LoginActivity.this, "dang nhap that bai", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
                 }
                 closeProgressDialog();
             }
@@ -89,41 +98,9 @@ public class LoginActivity extends BaseActivity{
             @Override
             public void onFailure(retrofit2.Call<LoginRespone> call, Throwable t) {
                 //that bai
-                Toast.makeText(LoginActivity.this, "dang nhap that bai", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
                 closeProgressDialog();
             }
         });
-//        String url="http://14.160.93.98:8672/testlogin.php";
-//        RequestQueue requestQueue=Volley.newRequestQueue(LoginActivity.this);
-//        StringRequest stringRequest=new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
-//            @Override
-//            public void onResponse(String response) {
-//                Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show();
-//                try {
-//                    JSONObject jsonObject=new JSONObject(response);
-//                    Log.d("kiemtra",response);
-//                    int code=jsonObject.getInt("code");
-//                    if(code==200){
-//                        startActivity(new Intent(LoginActivity.this,Main2Activity.class));
-//                    }
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }, new com.android.volley.Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//
-//            }
-//        }){
-//            @Override
-//            protected Map<String, String> getParams() throws AuthFailureError {
-//                HashMap<String,String>hashMap=new HashMap<>();
-//                hashMap.put("sbd",edtsobaodanh.getText().toString());
-//                hashMap.put("password",edtpassword.getText().toString());
-//                return hashMap;
-//            }
-//        };
-//        requestQueue.add(stringRequest);
     }
 }

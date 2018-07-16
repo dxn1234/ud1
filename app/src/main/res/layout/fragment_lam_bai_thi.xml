@@ -169,6 +169,7 @@
                         android:src="@drawable/logo" />
 
                     <TextView
+                        android:id="@+id/txt_lambaithihoten"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -178,6 +179,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/txt_lambaithisobaodanh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -186,6 +188,7 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:id="@+id/txt_lambaithingaysinh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"

@@ -1,8 +1,12 @@
 package com.example.hoangbao.apptracnghiem.rest;
 
+import com.example.hoangbao.apptracnghiem.model.DanhSachCauHoi;
+import com.example.hoangbao.apptracnghiem.model.Datum1;
 import com.example.hoangbao.apptracnghiem.model.ExamListRespone;
 import com.example.hoangbao.apptracnghiem.model.LoaiMonThi;
 import com.example.hoangbao.apptracnghiem.model.LoginRespone;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -24,6 +28,6 @@ public interface Apis {
 
     @FormUrlEncoded
     @POST("danhsachcauhoi.php")
-    Call<LoaiMonThi>daymamonlenserver(@Field("mamon") String mamon);
+    Call<DanhSachCauHoi>getdanhsachcauhoi(@Field("mamon") String mamon);
 
 }

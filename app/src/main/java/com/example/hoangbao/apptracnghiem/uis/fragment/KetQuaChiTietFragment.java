@@ -27,6 +27,7 @@ import com.example.hoangbao.apptracnghiem.uis.activity.LoginActivity;
 import java.util.ArrayList;
 
 public class KetQuaChiTietFragment extends Fragment{
+    TextView txtketquachitiethoten,txtketquachitietngaysinh,txtketquachitietsobaodanh;
     TextView txtketquachitietmacauhoi,txtketquachitietcauhoi;
     RadioButton rbketquachitieta,rbketquachitietb,rbketquachitietc,rbketquachitietd;
     int stt=0;
@@ -119,6 +120,9 @@ public class KetQuaChiTietFragment extends Fragment{
         }
         soAdapter.notifyDataSetChanged();
         batSuKien();
+        txtketquachitietsobaodanh.setText("SBD:"+LoginActivity.edtsobaodanh.getText().toString());
+        txtketquachitietngaysinh.setText("Ngày sinh:"+LoginActivity.ngaysinh);
+        txtketquachitiethoten.setText(LoginActivity.name);
         return view;
     }
 
@@ -225,6 +229,9 @@ public class KetQuaChiTietFragment extends Fragment{
     }
 
     private void anhXa() {
+        txtketquachitiethoten=view.findViewById(R.id.txt_ketquachitiethoten);
+        txtketquachitietngaysinh=view.findViewById(R.id.txt_ketquachitietngaysinh);
+        txtketquachitietsobaodanh=view.findViewById(R.id.txt_ketquachitietsobaodanh);
         txtketquachitietmacauhoi=view.findViewById(R.id.txt_ketquachitietmacauhoi);
         txtketquachitietcauhoi=view.findViewById(R.id.txt_ketquachitietcauhoi);
         rbketquachitieta=view.findViewById(R.id.rb_ketquachitiet_a);

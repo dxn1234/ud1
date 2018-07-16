@@ -1,5 +1,6 @@
 package com.example.hoangbao.apptracnghiem.uis.fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class KetQuaThiFragment extends Fragment{
+    TextView txtketquathimenuhoten,txtketquathimenusobaodanh,txtketquathimenungaysinh;
     TextView txtketquathisobaodanh,txtketquathihoten,txtketquathibatdau,txtketquathiketquathiketthuc,txtketquathithoigainlambai;
     TextView txtketquathitongdiem;
     Button btnxemchitiet;
@@ -74,6 +77,9 @@ public class KetQuaThiFragment extends Fragment{
         txtketquathithoigainlambai.setText(30+" phút");
         txtketquathitongdiem.setText(tongdiem+"");
         batSuKien();
+        txtketquathimenusobaodanh.setText("SBD:"+LoginActivity.edtsobaodanh.getText().toString());
+        txtketquathimenuhoten.setText(LoginActivity.name);
+        txtketquathimenungaysinh.setText("Ngày sinh:"+LoginActivity.ngaysinh);
         return view;
     }
 
@@ -90,7 +96,16 @@ public class KetQuaThiFragment extends Fragment{
                 if(getActivity()!=null){
                     FragmentTransaction fragmentTransaction=getActivity().getSupportFragmentManager().beginTransaction();
                     KetQuaChiTietFragment ketQuaChiTietFragment=new KetQuaChiTietFragment();
-                    fragmentTransaction.replace(R.id.framelayout,ketQuaChiTietFragment);
+                    if(ketQuaChiTietFragment.isAdded()){
+                        fragmentTransaction.show(ketQuaChiTietFragment);
+                    }
+                    else{
+                        fragmentTransaction.add(R.id.framelayout,ketQuaChiTietFragment);
+                        fragmentTransaction.addToBackStack("ketquachitiet");
+                    }
+                    if(LamBaiThiFragment.ketQuaThiFragment.isAdded()){
+                        fragmentTransaction.hide(LamBaiThiFragment.ketQuaThiFragment);
+                    }
                     fragmentTransaction.commit();
                 }
             }
@@ -98,13 +113,34 @@ public class KetQuaThiFragment extends Fragment{
         lvmenuketquathi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                startActivity(new Intent(getActivity(),LoginActivity.class));
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Thông báo");
+                builder.setMessage("Bạn có muốn thoát chương trình không?");
+                builder.setCancelable(true);
+                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        startActivity(new Intent(getActivity(), LoginActivity.class));
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
     }
 
 
     private void anhXa() {
+        txtketquathimenuhoten=view.findViewById(R.id.txt_ketquathimenuhoten);
+        txtketquathimenusobaodanh=view.findViewById(R.id.txt_ketquathimenusobaodanh);
+        txtketquathimenungaysinh=view.findViewById(R.id.txt_ketquathingaysinh);
         txtketquathithoigainlambai=view.findViewById(R.id.txt_ketquathithoigian);
         txtketquathisobaodanh=view.findViewById(R.id.txt_ketquathisobaodanh);
         txtketquathihoten=view.findViewById(R.id.txt_ketquathihoten);

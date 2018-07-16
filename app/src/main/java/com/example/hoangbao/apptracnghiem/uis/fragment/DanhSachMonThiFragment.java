@@ -1,6 +1,7 @@
 package com.example.hoangbao.apptracnghiem.uis.fragment;
 
 import android.app.Activity;
+import android.app.TaskStackBuilder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -34,8 +36,10 @@ import com.example.hoangbao.apptracnghiem.adapter.LoaiMenuAdapter;
 import com.example.hoangbao.apptracnghiem.model.Datum;
 import com.example.hoangbao.apptracnghiem.model.ExamListRespone;
 import com.example.hoangbao.apptracnghiem.model.LoaiMenu;
+import com.example.hoangbao.apptracnghiem.rest.Apis;
 import com.example.hoangbao.apptracnghiem.rest.RestClient;
 import com.example.hoangbao.apptracnghiem.uis.activity.LoginActivity;
+import com.example.hoangbao.apptracnghiem.uis.activity.Main2Activity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,6 +53,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DanhSachMonThiFragment extends Fragment {
+    public static LamBaiThiFragment lamBaiThiFragment;
+    TextView txtdanhsachmonthisobaodanh,txtdanhsachmonthihoten,txtdanhsachmonthingaysinh;
     public static String mamon;
     String url="http://14.160.93.98:8672/danhsachmonthi.php";
     FragmentManager fragmentManager;
@@ -67,7 +73,6 @@ public class DanhSachMonThiFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_danh_sach_mon_thi, container, false);
         anhXa();
-
         return view;
     }
 
@@ -84,19 +89,23 @@ public class DanhSachMonThiFragment extends Fragment {
                 ExamListRespone examListRespone=response.body();
                 examListResponeArrayList.add(examListRespone);
                 mamon=examListRespone.getData().get(0).getMamon();
+                Log.d("kiemtraa",mamon);
                 datumArrayList= (ArrayList<Datum>) examListResponeArrayList.get(0).getData();
                 DatumAdapter datumAdapter=new DatumAdapter(getActivity(),R.layout.dong_datum,datumArrayList);
                 lvdanhsachmonthi.setAdapter(datumAdapter);
             }
-
             @Override
             public void onFailure(Call<ExamListRespone> call, Throwable t) {
                 Toast.makeText(getActivity(), "Lỗi danhsachmonthifragment", Toast.LENGTH_SHORT).show();
             }
         });
         batSuKien();
+        txtdanhsachmonthisobaodanh.setText("SBD:"+LoginActivity.edtsobaodanh.getText().toString());
+        txtdanhsachmonthihoten.setText(LoginActivity.name);
+        txtdanhsachmonthingaysinh.setText("Ngày sinh:"+LoginActivity.ngaysinh);
         super.onActivityCreated(savedInstanceState);
     }
+
 
     private void batSuKien() {
         imgbtnDanhSachMonThi.setOnClickListener(new View.OnClickListener() {
@@ -109,8 +118,17 @@ public class DanhSachMonThiFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                LamBaiThiFragment lamBaiThiFragment = new LamBaiThiFragment();
-                fragmentTransaction.replace(R.id.framelayout, lamBaiThiFragment);
+                lamBaiThiFragment = new LamBaiThiFragment();
+                if(lamBaiThiFragment.isAdded()){
+                    fragmentTransaction.show(lamBaiThiFragment);
+                }
+                else{
+                    fragmentTransaction.add(R.id.framelayout, lamBaiThiFragment);
+                    fragmentTransaction.addToBackStack("lambaithi");
+                }
+                if(Main2Activity.danhSachMonThiFragment.isAdded()){
+                   fragmentTransaction.hide(Main2Activity.danhSachMonThiFragment);
+                }
                 fragmentTransaction.commit();
             }
         });
@@ -140,6 +158,9 @@ public class DanhSachMonThiFragment extends Fragment {
         });
     }
     private void anhXa() {
+        txtdanhsachmonthihoten=view.findViewById(R.id.txt_danhsachmonthihoten);
+        txtdanhsachmonthingaysinh=view.findViewById(R.id.txt_danhsachmonthingaysinh);
+        txtdanhsachmonthisobaodanh=view.findViewById(R.id.txt_danhsachmonthisobaodanh);
         datumArrayList=new ArrayList<>();
         fragmentManager = getActivity().getSupportFragmentManager();
         examListResponeArrayList = new ArrayList<>();
