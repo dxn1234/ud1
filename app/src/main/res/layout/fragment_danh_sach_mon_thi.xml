@@ -70,11 +70,12 @@
                         android:layout_gravity="center"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:textStyle="normal"
                         android:text="Nguyễn Mạnh Cường"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        android:textStyle="normal"
                         android:id="@+id/txt_danhsachmonthisobaodanh"
                         android:layout_gravity="center"
                         android:textColor="@android:color/white"
@@ -83,6 +84,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        android:textStyle="normal"
                         android:id="@+id/txt_danhsachmonthingaysinh"
                         android:layout_gravity="center"
                         android:textColor="@android:color/white"

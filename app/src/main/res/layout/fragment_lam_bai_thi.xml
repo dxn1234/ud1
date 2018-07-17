@@ -74,14 +74,14 @@
                         android:id="@+id/txt_lambaithi_macauhoi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Câu hỏi 1:" />
+                        />
 
                     <TextView
                         android:textSize="16sp"
                         android:id="@+id/txt_lambaithi_cauhoi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/cauhoi" />
+                        />
 
                     <RadioGroup
                         android:id="@+id/radio"
@@ -91,26 +91,22 @@
                         <RadioButton
                             android:id="@+id/rb_lambaithi_a"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/dapana" />
+                            android:layout_height="wrap_content" />
 
                         <RadioButton
                             android:id="@+id/rb_lambaithi_b"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/dapanb" />
+                            android:layout_height="wrap_content" />
 
                         <RadioButton
                             android:id="@+id/rb_lambaithi_c"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/dapanc" />
+                            android:layout_height="wrap_content" />
 
                         <RadioButton
                             android:id="@+id/rb_lambaithi_d"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/dapand" />
+                            android:layout_height="wrap_content" />
                     </RadioGroup>
                 </LinearLayout>
             </ScrollView>
@@ -122,7 +118,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
-                android:background="@android:color/holo_red_dark"
+                android:background="@color/colorPrimary"
                 android:text="Quay lại"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
@@ -136,7 +132,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@android:color/holo_red_dark"
+                android:background="@color/colorPrimary"
                 android:text="Câu tiếp"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
@@ -177,9 +173,10 @@
                         android:text="Nguyễn Mạnh Cường"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="normal" />
 
                     <TextView
+                        android:textStyle="normal"
                         android:id="@+id/txt_lambaithisobaodanh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -189,6 +186,7 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:textStyle="normal"
                         android:id="@+id/txt_lambaithingaysinh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

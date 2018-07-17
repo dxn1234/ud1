@@ -142,7 +142,7 @@
                 android:textAllCaps="false"
                 android:text="Xem chi tiết"
                 android:textColor="@android:color/white"
-                android:background="@android:color/holo_red_dark"
+                android:background="@color/colorPrimary"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:layout_width="120dp"
@@ -178,9 +178,10 @@
                         android:text="Nguyễn Mạnh Cường"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textStyle="normal" />
 
                     <TextView
+                        android:textStyle="normal"
                         android:id="@+id/txt_ketquathimenusobaodanh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -190,6 +191,7 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:textStyle="normal"
                         android:id="@+id/txt_ketquathingaysinh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
