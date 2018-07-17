@@ -21,11 +21,11 @@
                     android:id="@+id/imgbtn_ketquathi"
                     android:background="@drawable/ic_menu"
                     android:scaleType="fitXY"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
+                    android:layout_width="35dp"
+                    android:layout_height="35dp" />
                 <TextView
                     android:layout_marginLeft="30dp"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:text="Kết quả bài thi"
@@ -137,6 +137,7 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
             <Button
+                android:textStyle="normal"
                 android:id="@+id/btn_xemchitiet"
                 android:textAllCaps="false"
                 android:text="Xem chi tiết"

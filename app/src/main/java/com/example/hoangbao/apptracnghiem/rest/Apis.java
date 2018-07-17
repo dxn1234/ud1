@@ -3,6 +3,7 @@ package com.example.hoangbao.apptracnghiem.rest;
 import com.example.hoangbao.apptracnghiem.model.DanhSachCauHoi;
 import com.example.hoangbao.apptracnghiem.model.ExamListRespone;
 import com.example.hoangbao.apptracnghiem.model.LoginRespone;
+import com.example.hoangbao.apptracnghiem.model.NgayThi;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -23,5 +24,7 @@ public interface Apis {
     @FormUrlEncoded
     @POST("danhsachcauhoi.php")
     Call<DanhSachCauHoi>getdanhsachcauhoi(@Field("sbd") String sbd, @Field("mamon") String mamon);
-
+    @FormUrlEncoded
+    @POST("nopbai.php")
+    Call<NgayThi>getngaythi(@Field("sbd") String sbd,@Field("mamon") String mamon,@Field("diem") int diem,@Field("dapan") String dapan);
 }

@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="maunau">#80000000</color>
-    <color name="mauxanh">#42e13f</color>
+    <color name="colorPrimary">#A51916</color>
+    <color name="colorPrimaryDark">#A51916</color>
+    <color name="colorAccent">#A51916</color>
+
+
+    <color name="maunau">#80433e3e</color>
+    <color name="mauxanh">#04af00</color>
     <color name="mauden">#5c5c5c</color>
     <color name="mauvang">#fce136</color>
     <color name="maudo">#ed1414</color>
+
+
+    <color name="question_reject">#FAAC32</color>
+    <color name="question_not_yet_answer">#696969</color>
+    <color name="question_answer">#41B371</color>
+    <color name="question_answer_wrong">#ec182e</color>
+
 </resources>

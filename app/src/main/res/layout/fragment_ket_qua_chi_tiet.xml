@@ -18,11 +18,11 @@
                     android:id="@+id/imgbtn_ketquachitiet"
                     android:background="@drawable/ic_menu"
                     android:scaleType="fitXY"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp" />
+                    android:layout_width="35dp"
+                    android:layout_height="35dp" />
                 <TextView
                     android:layout_marginLeft="30dp"
-                    android:textStyle="bold"
+                    android:textStyle="normal"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:text="Kết quả bài thi"
@@ -46,6 +46,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                     <TextView
+                        android:textSize="16sp"
                         android:id="@+id/txt_ketquachitietcauhoi"
                         android:text="@string/cauhoi"
                         android:layout_width="wrap_content"
@@ -84,7 +85,7 @@
             <Button
                 android:id="@+id/btn_ketquachitietquaylai"
                 android:textAllCaps="false"
-                android:textStyle="bold"
+                android:textStyle="normal"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:textColor="@android:color/white"
@@ -98,7 +99,7 @@
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:text="Câu tiếp"
-                android:textStyle="bold"
+                android:textStyle="normal"
                 android:layout_marginBottom="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_alignParentRight="true"

@@ -36,7 +36,16 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         Log.d("kiemtra",getSupportFragmentManager().getBackStackEntryCount()+"");
-        if(getSupportFragmentManager().getBackStackEntryCount()>1){
+        if(getSupportFragmentManager().getBackStackEntryCount()==4){
+            getSupportFragmentManager().popBackStack();
+            getSupportFragmentManager().popBackStack();
+            getSupportFragmentManager().popBackStack();
+        }
+        else if(getSupportFragmentManager().getBackStackEntryCount()==3){
+            getSupportFragmentManager().popBackStack();
+            getSupportFragmentManager().popBackStack();
+        }
+        else if(getSupportFragmentManager().getBackStackEntryCount()>1){
             getSupportFragmentManager().popBackStack();
         }
         else{

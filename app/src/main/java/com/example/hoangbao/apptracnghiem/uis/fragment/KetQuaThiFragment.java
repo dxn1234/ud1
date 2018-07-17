@@ -22,15 +22,23 @@ import android.widget.TextView;
 
 import com.example.hoangbao.apptracnghiem.R;
 import com.example.hoangbao.apptracnghiem.adapter.LoaiMenuAdapter;
+import com.example.hoangbao.apptracnghiem.model.DanhSachCauHoi;
 import com.example.hoangbao.apptracnghiem.model.LoaiMenu;
+import com.example.hoangbao.apptracnghiem.model.NgayThi;
+import com.example.hoangbao.apptracnghiem.rest.RestClient;
 import com.example.hoangbao.apptracnghiem.uis.activity.LoginActivity;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class KetQuaThiFragment extends Fragment{
+    int tongdiem=0;
     TextView txtketquathimenuhoten,txtketquathimenusobaodanh,txtketquathimenungaysinh;
-    TextView txtketquathisobaodanh,txtketquathihoten,txtketquathibatdau,txtketquathiketquathiketthuc,txtketquathithoigainlambai;
+    TextView txtketquathisobaodanh,txtketquathihoten,txtketquathibatdau,txtketquathiketthuc,txtketquathithoigainlambai;
     TextView txtketquathitongdiem;
     Button btnxemchitiet;
     View view;
@@ -47,7 +55,7 @@ public class KetQuaThiFragment extends Fragment{
         loaiMenuArrayList.add(new LoaiMenu(R.drawable.next,"Đăng Xuất"));
         LoaiMenuAdapter loaiMenuAdapter=new LoaiMenuAdapter(getActivity(),R.layout.dong_menu,loaiMenuArrayList);
         lvmenuketquathi.setAdapter(loaiMenuAdapter);
-        int tongdiem=0;
+
         for(int i=0;i<LamBaiThiFragment.questionArrayList.size();i++){
             if(LamBaiThiFragment.questionArrayList.get(i).getRadioButtona().isChecked()){
                 if(LamBaiThiFragment.stringArrayListdapan.get(i).equals("A")){
@@ -80,7 +88,45 @@ public class KetQuaThiFragment extends Fragment{
         txtketquathimenusobaodanh.setText("SBD:"+LoginActivity.edtsobaodanh.getText().toString());
         txtketquathimenuhoten.setText(LoginActivity.name);
         txtketquathimenungaysinh.setText("Ngày sinh:"+LoginActivity.ngaysinh);
+        getdulieu();
         return view;
+    }
+
+    private void getdulieu() {
+        String s="";
+        for(int i=0;i<LamBaiThiFragment.stringArrayListdapan.size();i++){
+            s+=LamBaiThiFragment.questionArrayList.get(i).getMacauhoi()+","+LamBaiThiFragment.stringArrayListdapan.get(i);
+        }
+        Call<NgayThi>ngayThiCall= RestClient.getAPIs().getngaythi(LoginActivity.sobaodanh,DanhSachMonThiFragment.mamon,tongdiem,s);
+        ngayThiCall.enqueue(new Callback<NgayThi>() {
+            @Override
+            public void onResponse(Call<NgayThi> call, Response<NgayThi> response) {
+                NgayThi ngayThi=response.body();
+                String data=ngayThi.getData();
+                String s1="";
+                String s2="";
+                int gan=0;
+                for(int i=0;i<data.length();i++){
+                    if(data.charAt(i)!=';'){
+                        s1+=data.charAt(i);
+                    }
+                    else{
+                        gan=i;
+                        break;
+                    }
+                }
+                for(int i=gan+1;i<data.length();i++){
+                    s2+=data.charAt(i);
+                }
+                txtketquathibatdau.setText(s1);
+                txtketquathiketthuc.setText(s2);
+            }
+
+            @Override
+            public void onFailure(Call<NgayThi> call, Throwable t) {
+
+            }
+        });
     }
 
     private void batSuKien() {
@@ -145,7 +191,7 @@ public class KetQuaThiFragment extends Fragment{
         txtketquathisobaodanh=view.findViewById(R.id.txt_ketquathisobaodanh);
         txtketquathihoten=view.findViewById(R.id.txt_ketquathihoten);
         txtketquathibatdau=view.findViewById(R.id.txt_ketquathibatdau);
-        txtketquathiketquathiketthuc=view.findViewById(R.id.txt_ketquathiketthuc);
+        txtketquathiketthuc=view.findViewById(R.id.txt_ketquathiketthuc);
         txtketquathitongdiem=view.findViewById(R.id.txt_ketquathitongdiem);
         btnxemchitiet=view.findViewById(R.id.btn_xemchitiet);
         loaiMenuArrayList =new ArrayList<>();
