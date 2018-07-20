@@ -87,7 +87,6 @@ public class LoginActivity extends BaseActivity{
                     ngaysinh=response.body().getData().getNgaysinh();
                     Data data = response.body().getData();
                     name = data.getHodem() + " " + data.getTen();
-                    Toast.makeText(LoginActivity.this, name, Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, Main2Activity.class));
                 } else {
                     Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();

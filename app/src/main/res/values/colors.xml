@@ -16,5 +16,5 @@
     <color name="question_not_yet_answer">#696969</color>
     <color name="question_answer">#41B371</color>
     <color name="question_answer_wrong">#ec182e</color>
-
+    <color name="dendam">#464545</color>
 </resources>

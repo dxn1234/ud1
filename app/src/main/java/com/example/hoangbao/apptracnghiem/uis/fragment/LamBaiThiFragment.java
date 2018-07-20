@@ -71,7 +71,7 @@ public class LamBaiThiFragment extends Fragment{
     int stt = 0;
     java.text.SimpleDateFormat simpleDateFormat;
     TextView txtlambaithimacauhoi, txtlambaithicauhoi, txtlambaithichuthich;
-    RadioButton rblambaithia, rblambaithib, rblambaithic, rblambaithid;
+    public static RadioButton rblambaithia, rblambaithib, rblambaithic, rblambaithid;
     Button btnlambaithiquaylai, btnlambaithicautiep;
     Button btnNopbai;
     View view;

@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.hoangbao.apptracnghiem.R;
@@ -27,6 +28,7 @@ import com.example.hoangbao.apptracnghiem.uis.activity.LoginActivity;
 import java.util.ArrayList;
 
 public class KetQuaChiTietFragment extends Fragment{
+    RadioGroup radioGroup;
     TextView txtketquachitiethoten,txtketquachitietngaysinh,txtketquachitietsobaodanh;
     TextView txtketquachitietmacauhoi,txtketquachitietcauhoi;
     RadioButton rbketquachitieta,rbketquachitietb,rbketquachitietc,rbketquachitietd;
@@ -58,12 +60,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonb().isChecked()){
                 rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
             }
-            if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonc().isChecked()){
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonc().isChecked()){
                 rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
             }
-            if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtond().isChecked()){
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtond().isChecked()){
                 rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtona().isChecked()){
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
+            }
+            else{
+                radioGroup.check(0);
             }
         }
         if(LamBaiThiFragment.stringArrayListdapan.get(0).equals("B")){
@@ -73,12 +85,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtona().isChecked()){
                 rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
             }
-            if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonc().isChecked()){
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonc().isChecked()){
                 rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
             }
-            if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtond().isChecked()){
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtond().isChecked()){
                 rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonb().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
+            }
+            else{
+                radioGroup.check(0);
             }
         }
         if(LamBaiThiFragment.stringArrayListdapan.get(0).equals("C")){
@@ -88,12 +110,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtona().isChecked()){
                 rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
             }
-            if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonb().isChecked()){
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonb().isChecked()){
                 rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
             }
-            if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtond().isChecked()){
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtond().isChecked()){
                 rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonc().isChecked()){
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
+            }
+            else{
+                radioGroup.check(0);
             }
         }
         if(LamBaiThiFragment.stringArrayListdapan.get(0).equals("D")){
@@ -103,12 +135,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitieta.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonb().isChecked()){
                 rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
             }
-            if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonc().isChecked()){
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtonc().isChecked()){
                 rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
             }
-            if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtona().isChecked()){
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtona().isChecked()){
                 rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(0).getRadioButtond().isChecked()){
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else{
+                radioGroup.check(0);
             }
         }
         txtketquachitietchuthich.setPaintFlags(txtketquachitietchuthich.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
@@ -123,9 +165,6 @@ public class KetQuaChiTietFragment extends Fragment{
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.mauxanh));
                 }
                 else{
-                    if(i==0){
-                        rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
-                    }
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.maudo));
                 }
             }
@@ -134,9 +173,6 @@ public class KetQuaChiTietFragment extends Fragment{
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.mauxanh));
                 }
                 else{
-                    if(i==0){
-                        rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
-                    }
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.maudo));
                 }
             }
@@ -145,9 +181,6 @@ public class KetQuaChiTietFragment extends Fragment{
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.mauxanh));
                 }
                 else{
-                    if(i==0){
-                        rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
-                    }
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.maudo));
                 }
             }
@@ -156,9 +189,6 @@ public class KetQuaChiTietFragment extends Fragment{
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.mauxanh));
                 }
                 else{
-                    if(i==0){
-                        rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
-                    }
                     soArrayList.get(i).setMausac(getResources().getColor(R.color.maudo));
                 }
             }
@@ -224,12 +254,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
                 rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
                 rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
                 rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
+            }
+            else{
+                radioGroup.check(0);
             }
             rbketquachitieta.setTextColor(getResources().getColor(R.color.mauxanh));
         }
@@ -240,12 +280,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
                 rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
                 rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
                 rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
+            }
+            else{
+                radioGroup.check(0);
             }
             rbketquachitietb.setTextColor(getResources().getColor(R.color.mauxanh));
         }
@@ -256,12 +306,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
                 rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
                 rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
                 rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
+            }
+            else{
+                radioGroup.check(0);
             }
             rbketquachitietc.setTextColor(getResources().getColor(R.color.mauxanh));
         }
@@ -272,12 +332,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
                 rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
                 rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
                 rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else{
+                radioGroup.check(0);
             }
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauxanh));
         }
@@ -297,12 +367,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
                 rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
                 rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
                 rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
+                rbketquachitieta.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
+            }
+            else{
+                radioGroup.check(0);
             }
             rbketquachitieta.setTextColor(getResources().getColor(R.color.mauxanh));
         }
@@ -313,12 +393,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
                 rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
                 rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
                 rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
+                rbketquachitietb.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
+            }
+            else{
+                radioGroup.check(0);
             }
             rbketquachitietb.setTextColor(getResources().getColor(R.color.mauxanh));
         }
@@ -329,12 +419,22 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
                 rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
                 rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
                 rbketquachitietd.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
+                rbketquachitietc.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
+            }
+            else{
+                radioGroup.check(0);
             }
             rbketquachitietc.setTextColor(getResources().getColor(R.color.mauxanh));
         }
@@ -345,18 +445,29 @@ public class KetQuaChiTietFragment extends Fragment{
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauden));
             if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtona().isChecked()){
                 rbketquachitieta.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_a);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonb().isChecked()){
                 rbketquachitietb.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_b);
             }
             else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtonc().isChecked()){
                 rbketquachitietc.setTextColor(getResources().getColor(R.color.maudo));
+                radioGroup.check(R.id.rb_ketquachitiet_c);
+            }
+            else if(LamBaiThiFragment.questionArrayList.get(stt).getRadioButtond().isChecked()){
+                rbketquachitietd.setTextColor(getResources().getColor(R.color.mauxanh));
+                radioGroup.check(R.id.rb_ketquachitiet_d);
+            }
+            else{
+                radioGroup.check(0);
             }
             rbketquachitietd.setTextColor(getResources().getColor(R.color.mauxanh));
         }
     }
 
     private void anhXa() {
+        radioGroup=view.findViewById(R.id.radiogroup);
         txtketquachitiethoten=view.findViewById(R.id.txt_ketquachitiethoten);
         txtketquachitietngaysinh=view.findViewById(R.id.txt_ketquachitietngaysinh);
         txtketquachitietsobaodanh=view.findViewById(R.id.txt_ketquachitietsobaodanh);

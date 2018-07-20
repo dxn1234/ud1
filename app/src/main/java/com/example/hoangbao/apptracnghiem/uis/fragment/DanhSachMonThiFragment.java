@@ -1,6 +1,7 @@
 package com.example.hoangbao.apptracnghiem.uis.fragment;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.TaskStackBuilder;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,7 +18,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -135,25 +138,24 @@ public class DanhSachMonThiFragment extends Fragment {
         lvMenuDanhSachMonThi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setTitle("Thông báo");
-                builder.setMessage("Bạn có muốn thoát chương trình không?");
-                builder.setCancelable(true);
-                builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                final Dialog dialog=new Dialog(getActivity());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dialog_custom);
+                dialog.show();
+                Button btnkhongthoat=dialog.findViewById(R.id.btn_khongthoat);
+                Button btndongy=dialog.findViewById(R.id.btn_dongythoat);
+                btndongy.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
+                    public void onClick(View v) {
+                        startActivity(new Intent(getActivity(),LoginActivity.class));
                     }
                 });
-                builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                btnkhongthoat.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                        startActivity(new Intent(getActivity(), LoginActivity.class));
+                    public void onClick(View v) {
+                        dialog.dismiss();
                     }
                 });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
             }
         });
     }

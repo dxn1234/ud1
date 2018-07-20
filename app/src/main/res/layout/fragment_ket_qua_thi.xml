@@ -191,6 +191,7 @@
                         android:textSize="20sp" />
 
                     <TextView
+                        android:layout_marginBottom="20dp"
                         android:textStyle="normal"
                         android:id="@+id/txt_ketquathingaysinh"
                         android:layout_width="wrap_content"
