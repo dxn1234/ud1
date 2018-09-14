@@ -77,6 +77,7 @@ public class KetQuaChiTietFragment extends Fragment{
             else{
                 radioGroup.check(0);
             }
+
         }
         if(LamBaiThiFragment.stringArrayListdapan.get(0).equals("B")){
             rbketquachitietb.setTextColor(getResources().getColor(R.color.mauxanh));
